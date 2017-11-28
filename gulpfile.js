@@ -114,6 +114,8 @@ var codegen = function(project, cb) {
 
     const regenManager = args['regenerate-manager'] ? ' --regenerate-manager=true ' : '';
 
+    const regenPom = args['regenerate-pom'] ? ' --regenerate-pom=true ' : '';
+
     const outDir = path.resolve(mappings[project].dir);
     // path.join won't work if specRoot is a URL
     cmd = autoRestExe + ' ' + specRoot + "/" + mappings[project].source +
@@ -125,6 +127,7 @@ var codegen = function(project, cb) {
                         ` --license-header=MICROSOFT_MIT_NO_CODEGEN ` +
                         generatorPath +
                         regenManager +
+                        regenPom +
                         autoRestArgs;
 
     if (mappings[project].args !== undefined) {
