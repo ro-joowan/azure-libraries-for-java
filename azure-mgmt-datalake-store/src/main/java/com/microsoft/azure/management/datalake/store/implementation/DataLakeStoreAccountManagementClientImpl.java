@@ -10,19 +10,13 @@ package com.microsoft.azure.management.datalake.store.implementation;
 
 import com.microsoft.azure.AzureClient;
 import com.microsoft.azure.AzureServiceClient;
-import com.microsoft.azure.management.datalake.store.Accounts;
-import com.microsoft.azure.management.datalake.store.DataLakeStoreAccountManagementClient;
-import com.microsoft.azure.management.datalake.store.FirewallRules;
-import com.microsoft.azure.management.datalake.store.Locations;
-import com.microsoft.azure.management.datalake.store.Operations;
-import com.microsoft.azure.management.datalake.store.TrustedIdProviders;
 import com.microsoft.rest.credentials.ServiceClientCredentials;
 import com.microsoft.rest.RestClient;
 
 /**
  * Initializes a new instance of the DataLakeStoreAccountManagementClientImpl class.
  */
-public class DataLakeStoreAccountManagementClientImpl extends AzureServiceClient implements DataLakeStoreAccountManagementClient {
+public class DataLakeStoreAccountManagementClientImpl extends AzureServiceClient {
     /** the {@link AzureClient} used for long running operations. */
     private AzureClient azureClient;
 
@@ -139,67 +133,67 @@ public class DataLakeStoreAccountManagementClientImpl extends AzureServiceClient
     }
 
     /**
-     * The Accounts object to access its operations.
+     * The AccountsInner object to access its operations.
      */
-    private Accounts accounts;
+    private AccountsInner accounts;
 
     /**
-     * Gets the Accounts object to access its operations.
-     * @return the Accounts object.
+     * Gets the AccountsInner object to access its operations.
+     * @return the AccountsInner object.
      */
-    public Accounts accounts() {
+    public AccountsInner accounts() {
         return this.accounts;
     }
 
     /**
-     * The FirewallRules object to access its operations.
+     * The FirewallRulesInner object to access its operations.
      */
-    private FirewallRules firewallRules;
+    private FirewallRulesInner firewallRules;
 
     /**
-     * Gets the FirewallRules object to access its operations.
-     * @return the FirewallRules object.
+     * Gets the FirewallRulesInner object to access its operations.
+     * @return the FirewallRulesInner object.
      */
-    public FirewallRules firewallRules() {
+    public FirewallRulesInner firewallRules() {
         return this.firewallRules;
     }
 
     /**
-     * The TrustedIdProviders object to access its operations.
+     * The TrustedIdProvidersInner object to access its operations.
      */
-    private TrustedIdProviders trustedIdProviders;
+    private TrustedIdProvidersInner trustedIdProviders;
 
     /**
-     * Gets the TrustedIdProviders object to access its operations.
-     * @return the TrustedIdProviders object.
+     * Gets the TrustedIdProvidersInner object to access its operations.
+     * @return the TrustedIdProvidersInner object.
      */
-    public TrustedIdProviders trustedIdProviders() {
+    public TrustedIdProvidersInner trustedIdProviders() {
         return this.trustedIdProviders;
     }
 
     /**
-     * The Operations object to access its operations.
+     * The OperationsInner object to access its operations.
      */
-    private Operations operations;
+    private OperationsInner operations;
 
     /**
-     * Gets the Operations object to access its operations.
-     * @return the Operations object.
+     * Gets the OperationsInner object to access its operations.
+     * @return the OperationsInner object.
      */
-    public Operations operations() {
+    public OperationsInner operations() {
         return this.operations;
     }
 
     /**
-     * The Locations object to access its operations.
+     * The LocationsInner object to access its operations.
      */
-    private Locations locations;
+    private LocationsInner locations;
 
     /**
-     * Gets the Locations object to access its operations.
-     * @return the Locations object.
+     * Gets the LocationsInner object to access its operations.
+     * @return the LocationsInner object.
      */
-    public Locations locations() {
+    public LocationsInner locations() {
         return this.locations;
     }
 
@@ -238,11 +232,11 @@ public class DataLakeStoreAccountManagementClientImpl extends AzureServiceClient
         this.acceptLanguage = "en-US";
         this.longRunningOperationRetryTimeout = 30;
         this.generateClientRequestId = true;
-        this.accounts = new AccountsImpl(restClient().retrofit(), this);
-        this.firewallRules = new FirewallRulesImpl(restClient().retrofit(), this);
-        this.trustedIdProviders = new TrustedIdProvidersImpl(restClient().retrofit(), this);
-        this.operations = new OperationsImpl(restClient().retrofit(), this);
-        this.locations = new LocationsImpl(restClient().retrofit(), this);
+        this.accounts = new AccountsInner(restClient().retrofit(), this);
+        this.firewallRules = new FirewallRulesInner(restClient().retrofit(), this);
+        this.trustedIdProviders = new TrustedIdProvidersInner(restClient().retrofit(), this);
+        this.operations = new OperationsInner(restClient().retrofit(), this);
+        this.locations = new LocationsInner(restClient().retrofit(), this);
         this.azureClient = new AzureClient(this);
     }
 
