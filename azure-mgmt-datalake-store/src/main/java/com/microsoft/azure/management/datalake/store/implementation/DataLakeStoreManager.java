@@ -9,7 +9,7 @@ package com.microsoft.azure.management.datalake.store.implementation;
 import com.microsoft.azure.AzureEnvironment;
 import com.microsoft.azure.AzureResponseBuilder;
 import com.microsoft.azure.credentials.AzureTokenCredentials;
-import com.microsoft.azure.management.datalake.store.Accounts;
+import com.microsoft.azure.management.datalake.store.DataLakeStoreAccounts;
 import com.microsoft.azure.management.resources.fluentcore.arm.AzureConfigurable;
 import com.microsoft.azure.management.resources.fluentcore.arm.implementation.AzureConfigurableImpl;
 import com.microsoft.azure.management.resources.fluentcore.arm.implementation.Manager;
@@ -23,7 +23,7 @@ import com.microsoft.rest.RestClient;
  */
 public final class DataLakeStoreManager extends Manager<DataLakeStoreManager, DataLakeStoreAccountManagementClientImpl> {
     // Collections
-     private Accounts accounts;
+     private DataLakeStoreAccounts dataLakeStoreAccounts;
 
     private DataLakeStoreManager(RestClient restClient, String subscriptionId) {
         super(
@@ -98,10 +98,10 @@ public final class DataLakeStoreManager extends Manager<DataLakeStoreManager, Da
     /**
      * @return the Data Lake Store account management API entry point
      */
-    public Accounts accounts() {
-        if (accounts == null) {
-            accounts = new AccountsImpl(this);
+    public DataLakeStoreAccounts dataLakeStoreAccounts() {
+        if (dataLakeStoreAccounts == null) {
+            dataLakeStoreAccounts = new DataLakeStoreAccountsImpl(this);
         }
-        return accounts;
+        return dataLakeStoreAccounts;
     }
 }

@@ -8,6 +8,7 @@ package com.microsoft.azure.management.datalake.store.implementation;
 
 import com.microsoft.azure.management.apigeneration.LangDefinition;
 import com.microsoft.azure.management.datalake.store.DataLakeStoreAccount;
+import com.microsoft.azure.management.datalake.store.EncryptionIdentity;
 import com.microsoft.azure.management.resources.fluentcore.arm.models.implementation.GroupableResourceImpl;
 import rx.Observable;
 import rx.functions.Action1;
@@ -100,5 +101,10 @@ class DataLakeStoreAccountImpl
     }
 
     private void clearWrapperProperties() {
+    }
+
+    @Override
+    public EncryptionIdentity identity() {
+        return inner().identity();
     }
 }
